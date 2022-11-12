@@ -23,6 +23,7 @@ You can start editing the main page by modifying `src/index.js`.
 Run `pip freeze > requirments.txt` from the backend root directory to update requirements file when new package has been installed
 
 To exit the virtual environnement you can run `deactivate` and to reactivate use same command as step 4
+**Make sure to reactivate venv before working in the project**
 
 
 ## Git workflow
