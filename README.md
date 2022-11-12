@@ -16,7 +16,7 @@ You can start editing the main page by modifying `src/index.js`.
 
 ## Setting up python virtual environment (Venv) for backend
 1. Install python 3.10 if not yet installed and CD to backend directory
-2. run `pip install virtual env`
+2. run `pip install virtualenv`
 3. run `virtualenv venv`
 4. run `.\venv\Scripts\activate`
 5. run `pip install -r requirements.txt`
