@@ -1,5 +1,19 @@
 # CSU33012-Final-Project-Group-11
 
+## Getting Started
+
+First, run the react application inside the Frontend/engineer-productivity folder:
+
+```bash
+npm start
+# or
+yarn start
+```
+
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+You can start editing the main page by modifying `src/index.js`. 
+
 ## Git workflow
 In order to submit your code, you should use a workflow like this. This makes sure that the right versions of the code are in the repo, and that we're all working off the same code. 
 
