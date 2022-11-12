@@ -1,6 +1,6 @@
 # CSU33012-Final-Project-Group-11
 
-## Getting Started
+## Getting Started for React app (Frontend)
 
 First, run the react application inside the Frontend/engineer-productivity folder:
 
@@ -14,10 +14,20 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 You can start editing the main page by modifying `src/index.js`. 
 
+## Setting up python virtual environment (Venv) for backend
+1. Install python 3.10 if not yet installed and CD to backend directory
+2. run `pip install virtual env`
+3. run `virtualenv venv`
+4. run `.\venv\Scripts\activate`
+5. run `pip install -r requirements.txt`
+Run `pip freeze > requirments.txt` from the backend root directory to update requirements file when new package has been installed
+To exit the virtual environnement you can run `deactivate` and to reactivate use same command as step 4
+
+
 ## Git workflow
 In order to submit your code, you should use a workflow like this. This makes sure that the right versions of the code are in the repo, and that we're all working off the same code. 
 
-1. If you havent already, use `git pull` on the whatever branch your on. This is especially the case for dev and main branches. 
+1. If you haven't already, use `git pull` on the whatever branch your on. This is especially the case for dev and main branches. 
 2. After pulling the branch, use `git checkout` to get on to the dev branch.
 3. If you don't have the dev branch on your local machine, use `git fetch` and then `git switch dev` to get the remote dev branch. 
 3. When you're adding code,(assuming you've just used git pull), you can use `git checkout -b dev-f<BRANCH_NAME>` eg `git checkout -b dev-f-myfeature` The f in this case is for a feature branch.
