@@ -12,7 +12,7 @@ yarn start
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the main page by modifying `src/index.js`. 
+You can start editing the main page by modifying `src/App.js`. 
 
 ## Setting up python virtual environment (Venv) for backend
 1. Install python 3.10 if not yet installed and CD to backend directory
