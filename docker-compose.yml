@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  backend:
+    image: uvicorntest:latest
+    networks:
+      - my-net
+    ports:
+      - 80
+  frotend:
+    image: reacttest:latest
+    networks:
+      - my-net
+    ports:
+      - 4680:3000
+    command: npm start
+networks:
+  my-net:
+    driver: bridge
