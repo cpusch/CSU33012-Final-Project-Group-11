@@ -25,7 +25,7 @@ jobs:
           context: ./backend
           file: ./Dockerfile
           push: true
-          tags: sweng_final_project_backend:${{ github.event.release.tag_name}}
+          tags: sweng-final-project-backend:${{ github.event.release.tag_name}}
       - 
         name: Build frontend docker image and push to Docker Hub
         uses: docker/build-push-action@v3
@@ -33,7 +33,7 @@ jobs:
           context: ./Frontend/engineer-productivity/
           file: ./Dockerfile
           push: true
-          tags: sweng_final_project_frontend:${{ github.event.release.tag_name}}
+          tags: sweng-final-project-frontend:${{ github.event.release.tag_name}}
       - 
         name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
