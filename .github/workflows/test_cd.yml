@@ -23,7 +23,7 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           context: ./backend
-          file: ./Dockerfile
+          file: ./backend/Dockerfile
           push: true
           tags: sweng-final-project-backend:latest
       - 
@@ -31,7 +31,7 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           context: ./Frontend/engineer-productivity/
-          file: ./Dockerfile
+          file: ./backend/Dockerfile
           push: true
           tags: sweng-final-project-frontend:latest
       - 
