@@ -1,2 +1,2 @@
-def WorkflowTest():
+def test_workflow():
     assert 1 == 1
