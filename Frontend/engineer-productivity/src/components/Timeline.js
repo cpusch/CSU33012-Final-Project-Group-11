@@ -13,8 +13,6 @@ export const data = [
   ["Push to production", new Date(2022, 2, 1), new Date(2022, 3, 7)],
 ];
 
-
-
 class Timeline extends Component {
     render() {
       return (
@@ -25,7 +23,6 @@ class Timeline extends Component {
             chartType="Timeline"
             loader={<div>Loading Timeline</div>}
             data={data}
-            //options={options}
           />
         </div>
       )
