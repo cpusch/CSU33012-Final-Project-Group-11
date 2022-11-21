@@ -1,4 +1,5 @@
 import requests
+import json
 
 url = 'https://api.github.com/repos/AUTOMATIC1111/stable-diffusion-webui'
 issues = 'https://api.github.com/repos/AUTOMATIC1111/stable-diffusion-webui/issues'
@@ -6,9 +7,9 @@ issue_times = 'https://api.github.com/repos/AUTOMATIC1111/stable-diffusion-webui
 issue_times_100 = 'https://api.github.com/repos/AUTOMATIC1111/stable-diffusion-webui/issues?state=closed&per_page=100&page=1'
 
 response = requests.get(url)
-print("Status code: ", response.status_code)
+# print("Status code: ", response.status_code)
 response_dict = response.json()
-print('Open issues: ', response_dict['open_issues_count'],'\n')
+# print('Open issues: ', response_dict['open_issues_count'],'\n')
 
 def getRecentIssues():
     response = requests.get(issue_times_100)
@@ -25,7 +26,7 @@ def getRecentIssues():
         #print('Issue: ', issueArr)
         array.append(issueArr)
 
-    return array
+    return json.dumps(array)
 
 
 # arr = getRecentIssues()
