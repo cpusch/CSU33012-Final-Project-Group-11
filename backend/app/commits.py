@@ -1,4 +1,3 @@
-import json
 import requests
 def getCommitsOverTime(project):
     """
@@ -81,5 +80,4 @@ def getCommitsOverTime(project):
                 commitDicts = resp.json()
     # generate .json file with dictionary of commits per month
     jsonDict = dict(zip(months, commits))
-    with open("commits.json", "w") as outfile:
-        json.dump(jsonDict, outfile)
+    return jsonDict
