@@ -1,5 +1,7 @@
 import requests
 import json
+from dotenv import dotenv_values
+SECRETS = dotenv_values("./../.env")
 
 url = 'https://api.github.com/repos/AUTOMATIC1111/stable-diffusion-webui'
 issues = 'https://api.github.com/repos/AUTOMATIC1111/stable-diffusion-webui/issues'
@@ -12,7 +14,7 @@ response_dict = response.json()
 # print('Open issues: ', response_dict['open_issues_count'],'\n')
 
 def getRecentIssues():
-    response = requests.get(issue_times_100)
+    response = requests.get(issue_times_100,headers={"authorization": SECRETS['GITHUB_TOKEN']})
     response_dict = response.json()
     array = []
 

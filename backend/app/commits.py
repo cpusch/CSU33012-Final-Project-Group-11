@@ -1,4 +1,6 @@
 import requests
+from dotenv import dotenv_values
+SECRETS = dotenv_values("./../.env")
 def getCommitsOverTime(project):
     """
     getCommitsOverTime
@@ -15,7 +17,7 @@ def getCommitsOverTime(project):
     commits = []
     # getting information about specified project
     url = f'https://api.github.com/repos/{project}'
-    resp = requests.get(url)
+    resp = requests.get(url,headers={"authorization": SECRETS['GITHUB_TOKEN']})
     respDict = resp.json()
     # getting creation date
     creationDate = respDict['created_at']
@@ -51,7 +53,7 @@ def getCommitsOverTime(project):
 
     # getting list of branches for given repo
     url = f'https://api.github.com/repos/{project}/branches?per_page=100'
-    resp = requests.get(url)
+    resp = requests.get(url,headers={"authorization": SECRETS['GITHUB_TOKEN']})
     respDicts = resp.json()
     # look for master branch
     for i in range(0, len(respDicts)):
@@ -61,7 +63,7 @@ def getCommitsOverTime(project):
             # get list of 100 latest commits from master branch
             sha = respDict['commit']['sha']
             url = f'https://api.github.com/repos/{project}/commits?per_page=100&sha={sha}'
-            resp = requests.get(url)
+            resp = requests.get(url,headers={"authorization": SECRETS['GITHUB_TOKEN']})
             commitDicts = resp.json()
             # parse list and increment commits by their respective months
             while len(commitDicts) != 1:
@@ -76,7 +78,7 @@ def getCommitsOverTime(project):
                 commit = commitDicts[j]
                 sha = commit['sha']
                 url = f'https://api.github.com/repos/{project}/commits?per_page=100&sha={sha}'
-                resp = requests.get(url)
+                resp = requests.get(url,headers={"authorization": SECRETS['GITHUB_TOKEN']})
                 commitDicts = resp.json()
     # generate .json file with dictionary of commits per month
     jsonDict = dict(zip(months, commits))
