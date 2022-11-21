@@ -28,5 +28,5 @@ def getRecentIssues():
     return array
 
 
-arr = getRecentIssues()
-print(arr)
+# arr = getRecentIssues()
+# print(arr)
