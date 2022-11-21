@@ -1,6 +1,7 @@
 from typing import Union
 from fastapi import FastAPI
 from commits import *
+from GetIssues import *
 
 app = FastAPI()
 
@@ -16,3 +17,8 @@ def read_item(item_id: int, q: Union[str, None] = None):
 @app.get("/commits")
 def get_commits():
     return getCommitsOverTime("AUTOMATIC1111/stable-diffusion-webui")
+    # return "test"
+
+@app.get("/timeline")
+def get_issues():
+    return getRecentIssues()
