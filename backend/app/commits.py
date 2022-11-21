@@ -66,7 +66,7 @@ def getCommitsOverTime(project):
             # parse list and increment commits by their respective months
             while len(commitDicts) != 1:
                 j = 0
-                while j <= len(commitDicts)-1:
+                while j < len(commitDicts)-1:
                     commit = commitDicts[j]
                     date = commit['commit']['author']['date']
                     date = date[:7]
