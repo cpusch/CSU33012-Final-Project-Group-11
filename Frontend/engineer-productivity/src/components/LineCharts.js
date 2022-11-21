@@ -10,6 +10,8 @@ const LineData = [
   [5, 9],
   [6, 11],
   [7, 27],
+  [8,12],
+  [9,6]
 ]
 const LineChartOptions = {
   hAxis: {
@@ -19,14 +21,15 @@ const LineChartOptions = {
     title: 'Commits',
   },
   series: {
-    1: { curveType: 'function' },
+    0: { curveType: 'function', color: '#A020F0'  },
+  
   },
 }
 class LineCharts extends Component {
   render() {
     return (
       <div className="container mt-5">
-        <h2>Line Chart Example</h2>
+        <h4>Line Chart for Commits over a period of time</h4>
         <Chart
           width={'700px'}
           height={'410px'}
