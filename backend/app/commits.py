@@ -60,7 +60,7 @@ def getCommitsOverTime(project):
         if name == 'master':
             # get list of 100 latest commits from master branch
             sha = respDict['commit']['sha']
-            url = f'https://api.github.com/repos/{project}/branches?per_page=100&sha={sha}'
+            url = f'https://api.github.com/repos/{project}/commits?per_page=100&sha={sha}'
             resp = requests.get(url)
             commitDicts = resp.json()
             # parse list and increment commits by their respective months
