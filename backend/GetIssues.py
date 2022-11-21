@@ -3,6 +3,7 @@ import requests
 issues = 'https://api.github.com/repos/AUTOMATIC1111/stable-diffusion-webui/issues'
 url = 'https://api.github.com/repos/AUTOMATIC1111/stable-diffusion-webui'
 issue_times = 'https://api.github.com/repos/AUTOMATIC1111/stable-diffusion-webui/issues?state=closed'
+issue_times_100 = 'https://api.github.com/repos/AUTOMATIC1111/stable-diffusion-webui/issues?state=closed&per_page=100&page=1'
 
 response = requests.get(url)
 print("Status code: ", response.status_code)
