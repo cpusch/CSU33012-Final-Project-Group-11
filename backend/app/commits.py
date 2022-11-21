@@ -1,14 +1,16 @@
 import json
 import requests
-
-# getCommitsOverTime
-# Uses the GitHub REST API to retrieve the number of commits made over time on the master branch
-# Author: Abigail Amethyst
-# project - name of requested project, stores as a String (formatted as 'owner/repoName')
-# does not return anything, but creates a .json file with 2 lists
-# the first list is the timespan of the repo in months, the second is the amount of commits made per month
-# the index of both arrays correspond with each other
 def getCommitsOverTime(project):
+    """
+    getCommitsOverTime
+    Uses the GitHub REST API to retrieve the number of commits made over time on the master branch
+    Author: Abigail Amethyst
+    project - name of requested project, stores as a String (formatted as 'owner/repoName')
+    does not return anything, but creates a .json file with 2 lists
+    the first list is the timespan of the repo in months, the second is the amount of commits made per month
+    the index of both arrays correspond with each other
+    """
+
     # initialising months and commits list for storage of data
     months = []
     commits = []
