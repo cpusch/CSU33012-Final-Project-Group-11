@@ -1,17 +1,16 @@
 import React, { Component } from 'react'
 import Chart from 'react-google-charts'
-const LineData = [
-  ['x', 'commits'],
-  [0, 0,],
-  [1, 10],
-  [2, 23],
-  [3, 17],
-  [4, 18],
-  [5, 9],
-  [6, 11],
-  [7, 27],
-  [8,12],
-  [9,6]
+export const LineData = [
+  [
+    { type: "date", id: "Date" },
+    { type: "number", id: "Commits" },
+  ],
+  [new Date(2022, 0, 13), 0],
+  [new Date(2022, 1, 17), 12],
+  [new Date(2022, 2, 22), 6],
+  [new Date(2022, 3, 29), 9],
+  [new Date(2022, 4, 1), 5],
+  [new Date(2022, 4, 3), 5],
 ]
 const LineChartOptions = {
   hAxis: {
