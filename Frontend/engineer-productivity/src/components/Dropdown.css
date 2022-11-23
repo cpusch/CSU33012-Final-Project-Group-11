@@ -1,20 +1,21 @@
 .dropdown-container {
     text-align: left;
     border: 1px solid rgb(10, 219, 251);
-    position: relative;
     border-radius: 5px;
     width: 100px;
+    object-position: 5px 10%;
   }
   
-  .dropdown-input {
+.dropdown-input {
     padding: 5px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     user-select: none;
+    object-position: 5px 10%;
   }
 
-  .dropdown-menu{
+.dropdown-menu{
     position: absolute;
     transform: translate(4px);
     width: 100px;
@@ -23,9 +24,10 @@
     overflow: auto;
     max-height: 150px;
     background-color: #fff;
+    object-position: 5px 10%;
   }
 
-  .dropdown-item{
+.dropdown-item{
     padding: 5px;
     cursor: pointer;
   }

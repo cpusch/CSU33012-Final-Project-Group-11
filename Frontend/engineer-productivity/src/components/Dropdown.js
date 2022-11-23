@@ -11,7 +11,9 @@ const Icon = () => {
     </svg>
   );
 };
-
+function changeColor(color) {
+    document.body.style.background = color;
+}
 const Dropdown = ({ placeHolder, options }) => {
     const[showMenu, setShowMenu] = useState(false);
     const [selectedValue, setSelectedValue] = useState(null);
@@ -38,6 +40,12 @@ const Dropdown = ({ placeHolder, options }) => {
 
   const onItemClick = (option) => {
     setSelectedValue(option);
+    if (option.value === "Monthly") {
+        changeColor('purple');
+    }
+    else if (option.value === "Yearly") {
+      changeColor('pink');
+  }
   };
 
   const isSelected = (option) => {
