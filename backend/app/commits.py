@@ -10,6 +10,7 @@ project - name of requested project, stores as a String (formatted as 'owner/rep
 isYears - Boolean value determining whether the commit dict will be in years or months
 
 Returns a dict with the chosen timespan and the number of commits for each year/month
+If an error is encountered when calling the API, the function will return a String with an error message
 """
 def getCommitsOverTime(project, isYears):
     # getting information about specified project
