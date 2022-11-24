@@ -15,6 +15,8 @@ def getCommitsOverTime(project, isYears):
     # getting information about specified project
     url = f'https://api.github.com/repos/{project}'
     resp = requests.get(url, headers={"authorization": SECRETS['GITHUB_TOKEN']})
+    if resp.status_code == 500:
+        return "Error Encountered when using API. Make sure that repo is valid."
     if isYears:
         timeCommits = initYears(resp)
     else:
@@ -25,6 +27,8 @@ def getCommitsOverTime(project, isYears):
     # getting list of branches for given repo
     url = f'https://api.github.com/repos/{project}/branches?per_page=100'
     resp = requests.get(url, headers={"authorization": SECRETS['GITHUB_TOKEN']})
+    if resp.status_code == 500:
+        return "Error Encountered when using API. Make sure that repo is valid."
     respDicts = resp.json()
     # look for master branch
     for i in range(0, len(respDicts)):
@@ -35,6 +39,8 @@ def getCommitsOverTime(project, isYears):
             sha = respDict['commit']['sha']
             url = f'https://api.github.com/repos/{project}/commits?per_page=100&sha={sha}'
             resp = requests.get(url, headers={"authorization": SECRETS['GITHUB_TOKEN']})
+            if resp.status_code == 500:
+                return "Error Encountered when using API. Make sure that repo is valid."
             commitDicts = resp.json()
             # parse list and increment commits by their respective months
             while len(commitDicts) != 1:
@@ -53,6 +59,8 @@ def getCommitsOverTime(project, isYears):
                 sha = commit['sha']
                 url = f'https://api.github.com/repos/{project}/branches?per_page=100&sha={sha}'
                 resp = requests.get(url, headers={"authorization": SECRETS['GITHUB_TOKEN']})
+                if resp.status_code == 500:
+                    return "Error Encountered when using API. Make sure that repo is valid."
                 commitDicts = resp.json()
 
     # generate .json file with dictionary of commits per month
