@@ -1,6 +1,7 @@
 import requests
 from dotenv import dotenv_values
 SECRETS = dotenv_values("./../.env")
+
 """
 getCommitsOverTime
 Uses the GitHub REST API to retrieve the number of commits made over time on the master branch
@@ -46,7 +47,7 @@ def getCommitsOverTime(project, isYears):
             # parse list and increment commits by their respective months
             while len(commitDicts) != 1:
                 j = 0
-                while j <= len(commitDicts)-1:
+                while j < len(commitDicts)-1:
                     commit = commitDicts[j]
                     date = commit['commit']['author']['date']
                     if isYears:
