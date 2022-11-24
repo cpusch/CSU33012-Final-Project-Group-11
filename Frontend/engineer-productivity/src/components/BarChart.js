@@ -1,29 +1,28 @@
 import React, { Component } from 'react'
 import Chart from 'react-google-charts'
-
-export const LineData = [
+export const BarData = [
   [
     { type: "string", id: "Date" },
     { type: "number", id: "Commits" },
   ],
+
   ["2022-08", 75],
   ["2022-09", 813],
   ["2022-10", 860],
   ["2022-11", 215],
 ]
-const LineChartOptions = {
+const BarChartOptions = {
   hAxis: {
-    title: 'Time',
-  },
-  vAxis: {
     title: 'Commits',
   },
+  vAxis: {
+    title: 'Time',
+  },
   series: {
-    0: {curveType: 'function', color: '#F9429E', width: 10 },
-  
+    0: {color: '#66CDAA'},
   },
 }
-class LineCharts extends Component {
+class BarChart extends Component {
 
   constructor(props){
     super(props);
@@ -34,19 +33,18 @@ class LineCharts extends Component {
   render() {
     return (
       <div className="container mt-5">
-        <h4>Line Chart for Commits over a period of time</h4>
         <Chart
           width={'700px'}
           height={'410px'}
-          chartType="LineChart"
+          chartType="BarChart"
           loader={<div>Loading Chart</div>}
           //data={this.state.chartData}
-          data={LineData}
-          options={LineChartOptions}
+          data={BarData}
+          options={BarChartOptions}
           rootProps={{ 'data-testid': '2' }}
         />
       </div>
     )
   }
 }
-export default LineCharts
+export default BarChart
