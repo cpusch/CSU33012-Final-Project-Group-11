@@ -1,6 +1,6 @@
 import requests
 from dotenv import dotenv_values
-SECRETS = dotenv_values("../env")
+SECRETS = dotenv_values("../.env")
 def getCommitsOverTime(project):
     """
     getCommitsOverTime

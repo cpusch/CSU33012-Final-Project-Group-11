@@ -1,7 +1,7 @@
 import requests
 import json
 from dotenv import dotenv_values
-SECRETS = dotenv_values("../env")
+SECRETS = dotenv_values("../.env")
 
 url = 'https://api.github.com/repos/AUTOMATIC1111/stable-diffusion-webui'
 issues = 'https://api.github.com/repos/AUTOMATIC1111/stable-diffusion-webui/issues'
