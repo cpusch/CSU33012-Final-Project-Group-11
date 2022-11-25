@@ -16,7 +16,7 @@ def read_item(item_id: int, q: Union[str, None] = None):
 
 @app.get("/commits")
 def get_commits():
-    return getCommitsOverTime("AUTOMATIC1111/stable-diffusion-webui")
+    return getCommitsOverTime("AUTOMATIC1111/stable-diffusion-webui", False)
     # return "test"
 
 @app.get("/timeline")
