@@ -59,7 +59,7 @@ def getCommitsOverTime(project, isYears):
                 # get sha of last commit in list to get next 100 commits
                 commit = commitDicts[j]
                 sha = commit['sha']
-                url = f'https://api.github.com/repos/{project}/branches?per_page=100&sha={sha}'
+                url = f'https://api.github.com/repos/{project}/commits?per_page=100&sha={sha}'
                 resp = requests.get(url, headers={"authorization": SECRETS['GITHUB_TOKEN']})
                 if resp.status_code != 200:
                     return "Error Encountered when using API. Make sure that repo is valid."
