@@ -1,9 +1,21 @@
 from typing import Union
 from fastapi import FastAPI
+from starlette.middleware import Middleware
+from starlette.middleware.cors import CORSMiddleware
 from pullRequests import *
 from GetIssues import *
 
-app = FastAPI()
+middlewares = [
+    Middleware(
+        CORSMiddleware,
+        allow_origins=['*'],
+        allow_methods=['*'],
+        allow_headers=['*']
+    )
+]
+
+app = FastAPI(middleware=middlewares)
+
 
 @app.get("/")
 def read_root():
