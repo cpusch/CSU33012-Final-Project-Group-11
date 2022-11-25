@@ -10,14 +10,14 @@ Author: Abigail Amethyst
 project - name of requested project, stores as a String (formatted as 'owner/repoName')
 isYears - Boolean value determining whether the commit dict will be in years or months
 
-Returns a dict with the chosen timespan and the number of commits for each year/month
+Returns a tuple list with the chosen timespan and the number of commits for each year/month
 If an error is encountered when calling the API, the function will return a String with an error message
 """
 def getCommitsOverTime(project, isYears):
     # getting information about specified project
     url = f'https://api.github.com/repos/{project}'
     resp = requests.get(url, headers={"authorization": SECRETS['GITHUB_TOKEN']})
-    if resp.status_code == 500:
+    if resp.status_code != 200:
         return "Error Encountered when using API. Make sure that repo is valid."
     if isYears:
         timeCommits = initYears(resp)
@@ -29,7 +29,7 @@ def getCommitsOverTime(project, isYears):
     # getting list of branches for given repo
     url = f'https://api.github.com/repos/{project}/branches?per_page=100'
     resp = requests.get(url, headers={"authorization": SECRETS['GITHUB_TOKEN']})
-    if resp.status_code == 500:
+    if resp.status_code != 200:
         return "Error Encountered when using API. Make sure that repo is valid."
     respDicts = resp.json()
     # look for master branch
@@ -41,7 +41,7 @@ def getCommitsOverTime(project, isYears):
             sha = respDict['commit']['sha']
             url = f'https://api.github.com/repos/{project}/commits?per_page=100&sha={sha}'
             resp = requests.get(url, headers={"authorization": SECRETS['GITHUB_TOKEN']})
-            if resp.status_code == 500:
+            if resp.status_code != 200:
                 return "Error Encountered when using API. Make sure that repo is valid."
             commitDicts = resp.json()
             # parse list and increment commits by their respective months
@@ -61,13 +61,16 @@ def getCommitsOverTime(project, isYears):
                 sha = commit['sha']
                 url = f'https://api.github.com/repos/{project}/branches?per_page=100&sha={sha}'
                 resp = requests.get(url, headers={"authorization": SECRETS['GITHUB_TOKEN']})
-                if resp.status_code == 500:
+                if resp.status_code != 200:
                     return "Error Encountered when using API. Make sure that repo is valid."
                 commitDicts = resp.json()
 
-    # generate .json file with dictionary of commits per month
-    jsonDict = dict(zip(timespan, commits))
-    return jsonDict
+    # generate tuple list
+    output = []
+    for i in range(0, len(timespan)):
+        tmp = [timespan[i], commits[i]]
+        output.append(tmp)
+    return output
 
 
 """
