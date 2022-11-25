@@ -29,12 +29,16 @@ def getPullRequestsOverTime(project, isYears):
     i = 0
     url = f'https://api.github.com/repos/{project}/pulls?per_page=100&page={i}&state=all'
     resp = requests.get(url, headers={"authorization": SECRETS['GITHUB_TOKEN']})
+    if resp.status_code != 200:
+        return "Error Encountered when using API. Make sure that repo is valid."
     respDicts = resp.json()
     pageEmpty = False
+    # parse pull requests until empty page is found
     while not pageEmpty:
         if len(respDicts) == 0:
             pageEmpty = True
         else:
+            # iterate through page of pull requests and add to list based on date
             for j in range(0, len(respDicts)):
                 tmp = respDicts[j]
                 date = tmp['created_at']
@@ -43,10 +47,16 @@ def getPullRequestsOverTime(project, isYears):
                 else:
                     date = date[:7]
                 pulls[timespan.index(date)] += 1
+            i += 1
+            url = f'https://api.github.com/repos/{project}/pulls?per_page=100&page={i}&state=all'
+            resp = requests.get(url, headers={"authorization": SECRETS['GITHUB_TOKEN']})
+            if resp.status_code != 200:
+                return "Error Encountered when using API. Make sure that repo is valid."
+            respDicts = resp.json()
 
     # generate tuple list
     output = []
     for i in range(0, len(timespan)):
-        tmp = [timespan[i], pulls[i]]
+        tmp = [ timespan[i], pulls[i] ]
         output.append(tmp)
     return output
