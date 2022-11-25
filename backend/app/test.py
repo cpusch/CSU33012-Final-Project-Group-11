@@ -9,6 +9,10 @@ def test_status():
     assert result == 200
 
 def test_issues_length():
-    result = GetIssues.getRecentIssues()
+    result = GetIssues.getRecentIssues()[:100]
     assert len(result) == 100
+
+if __name__ == "__main__":
+    test_status()
+    test_issues_length()
 
