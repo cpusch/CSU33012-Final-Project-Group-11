@@ -1,5 +1,14 @@
 import React, { Component } from 'react'
 import Chart from 'react-google-charts'
+import axios from 'axios'
+
+//example to get data from api.When opening react app in browser
+//prints the hello world from the '/' webpage of the api running 
+//on the following ip
+axios.get("http://127.0.0.1:8000/")
+    .then(function (response) {
+        console.log(typeof (response.data));
+    });
 
 // sample data
 export const data = [
