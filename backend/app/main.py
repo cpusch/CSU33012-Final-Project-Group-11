@@ -1,6 +1,6 @@
 from typing import Union
 from fastapi import FastAPI
-from commits import *
+from pullRequests import *
 from GetIssues import *
 
 app = FastAPI()
@@ -18,6 +18,10 @@ def read_item(item_id: int, q: Union[str, None] = None):
 def get_commits():
     return getCommitsOverTime("AUTOMATIC1111/stable-diffusion-webui", False)
     # return "test"
+
+@app.get("/pulls")
+def get_pulls():
+    return getPullRequestsOverTime("AUTOMATIC1111/stable-diffusion-webui", False)
 
 @app.get("/timeline")
 def get_issues():

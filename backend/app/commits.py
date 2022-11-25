@@ -4,10 +4,10 @@ SECRETS = dotenv_values("./../.env")
 
 """
 getCommitsOverTime
-Uses the GitHub REST API to retrieve the number of commits made over time on the master branch
+Uses the GitHub Rest API to retrieve the number of commits made over time on the master branch
 Author: Abigail Amethyst
 
-project - name of requested project, stores as a String (formatted as 'owner/repoName')
+project - name of requested project, stored as a String (formatted as 'owner/repoName')
 isYears - Boolean value determining whether the commit dict will be in years or months
 
 Returns a tuple list with the chosen timespan and the number of commits for each year/month
@@ -68,7 +68,7 @@ def getCommitsOverTime(project, isYears):
     # generate tuple list
     output = []
     for i in range(0, len(timespan)):
-        tmp = [timespan[i], commits[i]]
+        tmp = [ timespan[i], commits[i] ]
         output.append(tmp)
     return output
 
@@ -98,10 +98,10 @@ def initMonths(resp):
     # storing both dates as integer lists
     year = int(creationDate[:4])
     month = int(creationDate[5:7])
-    currentDate = [year, month]
+    currentDate = [ year, month ]
     year = int(latestUpdate[:4])
     month = int(latestUpdate[5:7])
-    latestDate = [year, month]
+    latestDate = [ year, month ]
 
     # generating the months and commit lists from month of creation to month of the latest update for storing data
     while currentDate != latestDate:
@@ -159,5 +159,5 @@ def initYears(resp):
     timeList.append(currentYear)
     commitList.append(0)
 
-    output = [timeList, commitList]
+    output = [ timeList, commitList ]
     return output
