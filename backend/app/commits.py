@@ -4,10 +4,10 @@ SECRETS = dotenv_values("./../.env")
 
 """
 getCommitsOverTime
-Uses the GitHub REST API to retrieve the number of commits made over time on the master branch
+Uses the GitHub Rest API to retrieve the number of commits made over time on the master branch
 Author: Abigail Amethyst
 
-project - name of requested project, stores as a String (formatted as 'owner/repoName')
+project - name of requested project, stored as a String (formatted as 'owner/repoName')
 isYears - Boolean value determining whether the commit dict will be in years or months
 
 Returns a tuple list with the chosen timespan and the number of commits for each year/month
