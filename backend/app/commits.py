@@ -161,3 +161,4 @@ def initYears(resp):
 
     output = [ timeList, commitList ]
     return output
+
