@@ -27,7 +27,8 @@ def test_commits_not_null():
 #tests our get_commits function, checking correct length of commits
 def test_commits_length():
     result = getCommitsOverTime("amy-coolshark/Bus-System", False)
-    assert len(result) == 63
+    commits = [item[1] for item in result]
+    assert commits[0] == 4
 
 #tests our get_pull_requests function, checking whether the dictionary returned is not null
 def test_pull_requests_not_null():
@@ -36,7 +37,8 @@ def test_pull_requests_not_null():
 #tests our get_commits function, checking correct length of commits
 def test_pull_requests_length():
     result = getPullRequestsOverTime("amy-coolshark/Bus-System", False)
-    assert len(result) == 63
+    pull_requests = [item[1] for item in result]
+    assert pull_requests[0] == 0
 
 if __name__ == "__main__":
     test_status()
