@@ -13,6 +13,9 @@ response = requests.get(url)
 response_dict = response.json()
 # print('Open issues: ', response_dict['open_issues_count'],'\n')
 
+def get_url_status():
+    return response.status_code
+
 def getRecentIssues():
     response = requests.get(issue_times_100,headers={"authorization": SECRETS['GITHUB_TOKEN']})
     response_dict = response.json()
