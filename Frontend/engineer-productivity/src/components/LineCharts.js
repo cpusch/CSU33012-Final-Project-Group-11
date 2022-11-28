@@ -19,7 +19,7 @@ const LineChartOptions = {
     title: 'Commits',
   },
   series: {
-    0: {curveType: 'function', color: '#F9429E', width: 10 },
+    0: {curveType: 'function', color: '#F9429E'},
   
   },
 }
@@ -40,9 +40,9 @@ class LineCharts extends Component {
           height={'410px'}
           chartType="LineChart"
           loader={<div>Loading Chart</div>}
-          //data={this.state.chartData}
-          data={LineData}
-          options={LineChartOptions}
+          data={this.state.chartData}
+          //data={LineData}
+          options={{}}
           rootProps={{ 'data-testid': '2' }}
         />
       </div>

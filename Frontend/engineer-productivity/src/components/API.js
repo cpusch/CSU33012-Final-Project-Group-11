@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Chart from './LineCharts';
-class App extends Component{
+class API extends Component{
     constructor(props){
         super(props);
         this.state={
@@ -14,12 +14,14 @@ class App extends Component{
         //Ajax Calls here
         await fetch('http://127.0.0.1:8000/commits')
             .then(res=>res.json())
+            .then((response) => console.log(response))
             .then(res=>this.setState({chartData:{apiResponse:res}}))
+           // JSON.parse(res);
     }
     render(){
         return(
-            <div className="App">
-                <div className="App-header">
+            <div className="Api">
+                <div className="Api-header">
                     <h2>Dashboard</h2>
                 </div>
                 <Chart chartData={this.state.chartData}/>
@@ -27,4 +29,4 @@ class App extends Component{
         );
     }
 }
-export default App;
+export default API;
