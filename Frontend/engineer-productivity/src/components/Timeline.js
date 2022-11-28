@@ -2,13 +2,10 @@ import React, { Component } from 'react'
 import Chart from 'react-google-charts'
 import axios from 'axios'
 
-//example to get data from api.When opening react app in browser
-//prints the hello world from the '/' webpage of the api running 
-//on the following ip
-axios.get("http://127.0.0.1:8000/")
+axios.get("http://127.0.0.1:8000/timeline")
     .then(function (response) {
-        console.log(typeof (response.data));
-    });
+        console.log(response)
+    })
 
 // sample data
 export const data = [
@@ -21,8 +18,6 @@ export const data = [
     ["Fix bug with input", new Date(2022, 1, 4), new Date(2022, 1, 28)],
     ["Push to production", new Date(2022, 2, 1), new Date(2022, 3, 7)],
 ];
-
-
 
 class Timeline extends Component {
     render() {
