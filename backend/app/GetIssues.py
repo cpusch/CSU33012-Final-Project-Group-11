@@ -28,11 +28,11 @@ def getRecentIssues():
         dateCreated = issue['created_at'].replace('Z', 'T').split('T')
         dateClosed = issue['closed_at'].replace('Z', 'T').split('T')
         issueArr = {
-            "name": issue['title'],
-            "date created": dateCreated[0],
-            "time created": dateCreated[1],
-            "date closed": dateClosed[0],
-            "time closed": dateClosed[1],
+            issue['title'],
+            dateCreated[0],
+            dateCreated[1],
+            dateClosed[0],
+            dateClosed[1],
         }
         #issueArr = [issue['title'], dateCreated[0], dateCreated[1], dateClosed[0], dateClosed[1]]
         #print('Issue: ', issueArr)
