@@ -9,10 +9,6 @@ def test_status():
     result = GetIssues.get_url_status()
     assert result == 200
 
-def test_issues_length():
-    result = GetIssues.getRecentIssues()[:100]
-    assert len(result) == 100
-
 #tests that the api call receives a status code of 200
 def test_status_code():
     url = f'https://api.github.com/repos/AUTOMATIC1111/stable-diffusion-webui'
@@ -42,7 +38,6 @@ def test_pull_requests_length():
 
 if __name__ == "__main__":
     test_status()
-    test_issues_length()
     test_status_code()
     test_commits_not_null()
     test_commits_length()
