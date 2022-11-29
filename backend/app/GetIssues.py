@@ -4,8 +4,6 @@ from dotenv import dotenv_values
 SECRETS = dotenv_values("./../.env")
 
 url = 'https://api.github.com/repos/AUTOMATIC1111/stable-diffusion-webui'
-issues = 'https://api.github.com/repos/AUTOMATIC1111/stable-diffusion-webui/issues'
-issue_times = 'https://api.github.com/repos/AUTOMATIC1111/stable-diffusion-webui/issues?state=closed'
 issue_times_100 = 'https://api.github.com/repos/AUTOMATIC1111/stable-diffusion-webui/issues?state=closed&per_page=100&page=1'
 
 response = requests.get(url)
@@ -23,22 +21,19 @@ def getRecentIssues():
 
     for i in range(len(response_dict)):
         issue = response_dict[i]
-        #print('Issue ID: ', issue['number'])
-        #print('Issue Title: ', issue['title'])
         dateCreated = issue['created_at'].replace('Z', 'T').split('T')
         dateClosed = issue['closed_at'].replace('Z', 'T').split('T')
         issueArr = {
-            issue['title'],
-            dateCreated[0],
-            dateCreated[1],
-            dateClosed[0],
-            dateClosed[1],
+            "name": issue['title'],
+            "date created": dateCreated[0],
+            "time created": dateCreated[1],
+            "date closed": dateClosed[0],
+            "time closed": dateClosed[1],
         }
         #issueArr = [issue['title'], dateCreated[0], dateCreated[1], dateClosed[0], dateClosed[1]]
-        #print('Issue: ', issueArr)
-        array.append(json.dumps(issueArr))
+        array.append(issueArr)
 
-    return array
+    json.dumps(array)
 
 
 # arr = getRecentIssues()
