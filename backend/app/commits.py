@@ -1,6 +1,11 @@
 import requests
 from dotenv import dotenv_values
+
 SECRETS = dotenv_values("./../.env")
+token = SECRETS['GITHUB_TOKEN']
+headers = requests.structures.CaseInsensitiveDict()
+headers["Accept"] = "application/vnd.github+json"
+headers["Authorization"] = f"Bearer {token}"
 
 """
 getCommitsOverTime
@@ -16,7 +21,7 @@ If an error is encountered when calling the API, the function will return a Stri
 def getCommitsOverTime(project, isYears):
     # getting information about specified project
     url = f'https://api.github.com/repos/{project}'
-    resp = requests.get(url, headers={"authorization": SECRETS['GITHUB_TOKEN']})
+    resp = requests.get(url, headers=headers)
     if resp.status_code != 200:
         return "Error Encountered when using API. Make sure that repo is valid."
     if isYears:
@@ -28,7 +33,7 @@ def getCommitsOverTime(project, isYears):
 
     # getting list of branches for given repo
     url = f'https://api.github.com/repos/{project}/branches?per_page=100'
-    resp = requests.get(url, headers={"authorization": SECRETS['GITHUB_TOKEN']})
+    resp = requests.get(url, headers=headers)
     if resp.status_code != 200:
         return "Error Encountered when using API. Make sure that repo is valid."
     respDicts = resp.json()
@@ -40,7 +45,7 @@ def getCommitsOverTime(project, isYears):
             # get list of 100 latest commits from master branch
             sha = respDict['commit']['sha']
             url = f'https://api.github.com/repos/{project}/commits?per_page=100&sha={sha}'
-            resp = requests.get(url, headers={"authorization": SECRETS['GITHUB_TOKEN']})
+            resp = requests.get(url, headers=headers)
             if resp.status_code != 200:
                 return "Error Encountered when using API. Make sure that repo is valid."
             commitDicts = resp.json()
@@ -60,7 +65,7 @@ def getCommitsOverTime(project, isYears):
                 commit = commitDicts[j]
                 sha = commit['sha']
                 url = f'https://api.github.com/repos/{project}/commits?per_page=100&sha={sha}'
-                resp = requests.get(url, headers={"authorization": SECRETS['GITHUB_TOKEN']})
+                resp = requests.get(url, headers=headers)
                 if resp.status_code != 200:
                     return "Error Encountered when using API. Make sure that repo is valid."
                 commitDicts = resp.json()

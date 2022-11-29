@@ -1,5 +1,11 @@
 from commits import *
+from dotenv import dotenv_values
+
 SECRETS = dotenv_values("./../.env")
+token = SECRETS['GITHUB_TOKEN']
+headers = requests.structures.CaseInsensitiveDict()
+headers["Accept"] = "application/vnd.github+json"
+headers["Authorization"] = f"Bearer {token}"
 
 """
 getPullRequestsOverTime
@@ -15,7 +21,7 @@ If an error is encountered when calling the API, the function will return a Stri
 def getPullRequestsOverTime(project, isYears):
     # getting information about specified project
     url = f'https://api.github.com/repos/{project}'
-    resp = requests.get(url, headers={"authorization": SECRETS['GITHUB_TOKEN']})
+    resp = requests.get(url, headers=headers)
     if resp.status_code != 200:
         return "Error Encountered when using API. Make sure that repo is valid."
     if isYears:
@@ -28,7 +34,7 @@ def getPullRequestsOverTime(project, isYears):
     # get initial set of pull requests
     i = 0
     url = f'https://api.github.com/repos/{project}/pulls?per_page=100&page={i}&state=all'
-    resp = requests.get(url, headers={"authorization": SECRETS['GITHUB_TOKEN']})
+    resp = requests.get(url, headers=headers)
     if resp.status_code != 200:
         return "Error Encountered when using API. Make sure that repo is valid."
     respDicts = resp.json()
@@ -49,7 +55,7 @@ def getPullRequestsOverTime(project, isYears):
                 pulls[timespan.index(date)] += 1
             i += 1
             url = f'https://api.github.com/repos/{project}/pulls?per_page=100&page={i}&state=all'
-            resp = requests.get(url, headers={"authorization": SECRETS['GITHUB_TOKEN']})
+            resp = requests.get(url, headers=headers)
             if resp.status_code != 200:
                 return "Error Encountered when using API. Make sure that repo is valid."
             respDicts = resp.json()
