@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import Chart from 'react-google-charts'
 import axios from 'axios'
-const m = 0;
-const  n = 0;
+const m = 2;
+const  n = 4;
 let arr = new Array(m); // create an empty array of length n
 //let innerArray = new Array(0);
 for (var i = 0; i < m; i++) {
