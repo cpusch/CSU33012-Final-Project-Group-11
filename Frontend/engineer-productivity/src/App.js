@@ -12,10 +12,11 @@ function App() {
   const options = [
     {value: "Monthly", label: "Monthly"},
     {value: "Yearly", label: "Yearly"},
+    //<Dropdown placeHolder="Select..." options={options}/>
 ];
   return (
     <div className="App">
-    <Dropdown placeHolder="Select..." options={options}/>
+    
      <LineCharts />
      <BarChart/>
      <Timeline/>

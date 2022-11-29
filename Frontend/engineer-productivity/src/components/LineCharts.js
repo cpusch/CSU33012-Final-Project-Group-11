@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
 import Chart from 'react-google-charts'
 import axios from 'axios'
-const m = 2;
-const  n = 4;
+import { data } from './Timeline';
+
+const m = 4;
+const  n = 2;
 let arr = new Array(m); // create an empty array of length n
 //let innerArray = new Array(0);
 for (var i = 0; i < m; i++) {
