@@ -1,15 +1,30 @@
 import React, { Component } from 'react'
 import Chart from 'react-google-charts'
+import axios from 'axios'
+const m = 0;
+const  n = 0;
+let arr = new Array(m); // create an empty array of length n
+//let innerArray = new Array(0);
+for (var i = 0; i < m; i++) {
+  arr[i] = new Array(n); // make each element an array
+}
 
-export const LineData = [
+
+  axios.get("http://127.0.0.1:8000/commits")
+    .then(function (response) {
+        console.log((response.data));
+        arr = (response.data);
+    })
+
+export const LineData  = [
   [
     { type: "string", id: "Date" },
     { type: "number", id: "Commits" },
   ],
-  ["2022-08", 75],
-  ["2022-09", 813],
-  ["2022-10", 860],
-  ["2022-11", 215],
+  arr[0],
+  arr[1],
+  arr[2],
+  arr[3],
 ]
 const LineChartOptions = {
   hAxis: {
@@ -40,9 +55,9 @@ class LineCharts extends Component {
           height={'410px'}
           chartType="LineChart"
           loader={<div>Loading Chart</div>}
-          data={this.state.chartData}
-          //data={LineData}
-          options={{}}
+          //data={this.state.chartData}
+          data={LineData}
+          options={LineChartOptions}
           rootProps={{ 'data-testid': '2' }}
         />
       </div>
