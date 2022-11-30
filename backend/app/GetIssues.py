@@ -38,7 +38,7 @@ def getRecentIssues():
         #issueArr = [issue['title'], dateCreated[0], dateCreated[1], dateClosed[0], dateClosed[1]]
         array.append(issueArr)
 
-    return json.dump(array, indent=4)
+    return json.dumps(array,indent=4)
 
 
 # arr = getRecentIssues()
