@@ -15,10 +15,12 @@ middlewares = [
 ]
 
 app = FastAPI(middleware=middlewares)
-
+commits = None
 
 @app.get("/")
 def read_root():
+    global commits
+    commits = getCommitsOverTime("AUTOMATIC1111/stable-diffusion-webui", False)
     return {"Hello": "World"}
 
 
@@ -28,7 +30,7 @@ def read_item(item_id: int, q: Union[str, None] = None):
 
 @app.get("/commits")
 def get_commits():
-    return getCommitsOverTime("AUTOMATIC1111/stable-diffusion-webui", False)
+    return commits
     # return "test"
 
 @app.get("/pulls")
