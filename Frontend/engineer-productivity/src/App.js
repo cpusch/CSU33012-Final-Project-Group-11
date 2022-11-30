@@ -1,26 +1,46 @@
-//import React, { Component } from 'react';
-//import logo from './logo.svg';
-import './App.css';
-// import 'bootstrap/dist/css/bootstrap.min.css';
-import LineCharts from './components/LineCharts';
-import BarChart from './components/BarChart';
-import Timeline from './components/Timeline';
-import Dropdown from './components/Dropdown';
+import { CssBaseline, ThemeProvider } from "@mui/material";
+import { ColorModeContext, useMode } from "./theme";
+import Topbar from "./scenes/global/topbar";
+import Sidebar from "./scenes/global/sidebar"
+//import Dashboard from "./scenes/dashboard";
+// import Team Profile "./scenes/team";
+//import About Us "./scenes/About";
+//import Form from "./scenes/form";
+import TimeLine from "./scenes/issues";
+import Line from "./scenes/line";
+import Commits from "./scenes/commits";
 
-
+import {Route, Routes} from "react-router-dom";
+import {useState} from "react";
 function App() {
+  const [theme, colorMode] = useMode();
+  const [isSidebar, setIsSidebar] = useState(true);
   const options = [
     {value: "Monthly", label: "Monthly"},
     {value: "Yearly", label: "Yearly"},
     //<Dropdown placeHolder="Select..." options={options}/>
-];
+    ];
   return (
-    <div className="App">
-    
-     <LineCharts />
-     <BarChart/>
-     <Timeline/>
-    </div>
+      <ColorModeContext.Provider value={colorMode}>
+        <ThemeProvider theme={theme}>
+            <CssBaseline/>
+            <div className="app">
+                 <Sidebar isSidebar={isSidebar} />
+                <main className= "content">
+                    <Topbar/>
+                    <Routes>
+                        {/*<Route path="/" element={<Dashboard />} />*/}
+                        {/*<Route path="/team" element={<Team />} />*/}
+                        {/*<Route path="/contacts" element={<Contacts />} />*/}
+                        {/*<Route path="/form" element={<Form />} />*/}
+                        <Route path="/bar" element={<TimeLine />} />
+                        <Route path="/commits" element={<Commits />} />
+                        <Route path="/line" element={<Line />} />
+                    </Routes>
+                </main>
+            </div>
+        </ThemeProvider>
+      </ColorModeContext.Provider>
   );
 }
 
