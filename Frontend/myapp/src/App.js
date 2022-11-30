@@ -5,10 +5,10 @@ import Sidebar from "./scenes/global/sidebar"
 //import Dashboard from "./scenes/dashboard";
 // import Team Profile "./scenes/team";
 //import About Us "./scenes/About";
-//import Bar from "./scenes/bar";
+import TimeLine from "./scenes/issues";
 //import Form from "./scenes/form";
-//import Line from "./scenes/line";
-//import Pie from "./scenes/pie";
+import Line from "./scenes/line";
+import Commits from "./scenes/commits";
 
 import {Route, Routes} from "react-router-dom";
 import {useState} from "react";
@@ -29,9 +29,9 @@ function App() {
                         {/*<Route path="/team" element={<Team />} />*/}
                         {/*<Route path="/contacts" element={<Contacts />} />*/}
                         {/*<Route path="/form" element={<Form />} />*/}
-                        {/*<Route path="/bar" element={<Bar />} />*/}
-                        {/*<Route path="/pie" element={<Pie />} />*/}
-                        {/*<Route path="/line" element={<Line />} />*/}
+                        <Route path="/bar" element={<TimeLine />} />
+                        <Route path="/commits" element={<Commits />} />
+                        <Route path="/line" element={<Line />} />
                     </Routes>
                 </main>
             </div>
