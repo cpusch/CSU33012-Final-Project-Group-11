@@ -2,10 +2,10 @@ import { Box } from "@mui/material";
 import Header from "../../components/Header";
 import LineChart from "../../components/LineCharts";
 
-const Line = () => {
+const Pull = () => {
   return (
     <Box m="20px">
-      <Header title="Pull" subtitle="" />
+      <Header title="PULL" subtitle="This our pull function" />
       <Box height="75vh">
         <LineChart />
       </Box>
@@ -13,4 +13,4 @@ const Line = () => {
   );
 };
 
-export default Line;
+export default Pull;

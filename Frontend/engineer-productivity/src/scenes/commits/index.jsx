@@ -5,7 +5,7 @@ import CommitLineChart from "../../components/LineCharts";
 const Commits = () => {
   return (
     <Box m="20px">
-      <Header title="Commits" subtitle="Simple Commits Chart" />
+      <Header title="COMMITS" subtitle="Simple Commits Chart" />
       <Box height="75vh">
         <CommitBarChart />
           <CommitLineChart />

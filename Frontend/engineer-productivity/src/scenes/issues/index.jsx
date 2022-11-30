@@ -5,7 +5,7 @@ import Timeline from "../../components/Timeline";
 const Issues = () => {
   return (
     <Box m="20px">
-      <Header title="Issues Chart" subtitle="Simple Timeline Chart" />
+      <Header title="ISSUES CHART" subtitle="Simple Timeline Chart" />
       <Box height="75vh">
         <Timeline />
       </Box>
