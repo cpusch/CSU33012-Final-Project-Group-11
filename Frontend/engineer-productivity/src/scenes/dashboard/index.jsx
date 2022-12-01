@@ -79,14 +79,13 @@ const Dashboard = () => {
                 fontWeight="800"
                 color={colors.grey[100]}
               >
-                PROJECT DESCRIPTION
+                FEATURES
               </Typography>
               <Typography
                 variant="h3"
                 fontWeight="bold"
                 color={colors.greenAccent[500]}
               >
-                Github
               </Typography>
               
             </Box>
@@ -99,7 +98,37 @@ const Dashboard = () => {
           overflow="auto"
           style={{borderRadius: "3%" }}
         >
+           <Box
+            mt="25px"
+            p="0 30px"
+            display="flex "
+            justifyContent="space-between"
+            alignItems="center"
+          >
+            <Box>
+              <Typography
+                variant="h3"
+                fontWeight="800"
+                color={colors.grey[100]}
+              >
+                GROUP DESCRIPTION
+              </Typography>
+              <Typography
+                variant="h4"
+                fontWeight="bold"
+                color={colors.greenAccent[500]}
+              >
+                This application measures the performance of a software team working on a project, using Github as their collaboration tool! We explore key metrics of the team including number of commits and pull requests, and identify inefficiencies through the visualization of Github issues being resolved. 
+                The goal of these metrics is for the team to evaluate their performance, and generate insights into where they are doing well and where they can improve.
 
+
+              </Typography>
+              
+            </Box>
+          </Box>
+
+
+{/*   
           <List
               sx={{
                 width: '100%',
@@ -133,8 +162,9 @@ const Dashboard = () => {
               <ListItemText primary="Pull" secondary="Feature Info:xxxxxxxxxxxxxxxxxxxxxxxxxxxx" />
             </ListItem>
             
-            <Divider variant="x" component="li" />
-          </List>
+            
+          </List> */}
+          <Divider variant="x" component="li" />
           <Link href="http://localhost:3000/about" padding="100px" underline="hover"  color={colors.grey[100]} variant="h4" fontWeight="600">
             {'Learn More'}
           </Link>
