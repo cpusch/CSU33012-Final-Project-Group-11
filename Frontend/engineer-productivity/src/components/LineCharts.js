@@ -1,32 +1,42 @@
-import React, { Component } from 'react'
+import React, { Component, useState } from 'react'
 import Chart from 'react-google-charts'
 import axios from 'axios'
 import { data } from './Timeline';
 
-const m = 4;
+/*const m = 4;
 const  n = 2;
 let arr = new Array(m); // create an empty array of length n
 //let innerArray = new Array(0);
 for (var i = 0; i < m; i++) {
   arr[i] = new Array(n); // make each element an array
-}
+}*/
 
 
-  axios.get("http://127.0.0.1:8000/commits")
+  /*axios.get("http://127.0.0.1:8000/commits")
     .then(function (response) {
         console.log((response.data));
         arr = (response.data);
-    })
-
-export const LineData  = [
+    })*/
+function LineCharts() {
+      const [dataHook, setDataHook] = useState([]);
+      const getData = async () => {
+          await axios.get("http://127.0.0.1:8000/commits")
+              .then((response) => (response.data))
+              .then((data) => {
+                  setDataHook(data)
+              })
+      }
+      getData()
+      console.log(dataHook)
+const LineData  = [
   [
     { type: "string", id: "Date" },
     { type: "number", id: "Commits" },
   ],
-  arr[0],
-  arr[1],
-  arr[2],
-  arr[3],
+  dataHook[0],
+  dataHook[1],
+  dataHook[2],
+  dataHook[3],
 ]
 const LineChartOptions = {
   hAxis: {
@@ -40,15 +50,7 @@ const LineChartOptions = {
   
   },
 }
-class LineCharts extends Component {
 
-  constructor(props){
-    super(props);
-    this.state ={
-        chartData:props.chartData
-    }
-}
-  render() {
     return (
       <div className="container mt-5">
         <h4>Line Chart for Commits over a period of time</h4>
@@ -65,5 +67,5 @@ class LineCharts extends Component {
       </div>
     )
   }
-}
+
 export default LineCharts
