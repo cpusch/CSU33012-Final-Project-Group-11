@@ -26,16 +26,16 @@ def getRecentIssues():
 
     for i in range(len(response_dict)):
         issue = response_dict[i]
-        dateCreated = issue['created_at'].replace('Z', 'T').split('T')
-        dateClosed = issue['closed_at'].replace('Z', 'T').split('T')
+        # dateCreated = issue['created_at'].replace('Z', 'T').split('T')
+        # dateClosed = issue['closed_at'].replace('Z', 'T').split('T')
+        dateCreated = issue['created_at']
+        dateClosed = issue['closed_at']
         issueArr = {
             "name": issue['title'],
-            "date created": dateCreated[0],
-            "time created": dateCreated[1],
-            "date closed": dateClosed[0],
-            "time closed": dateClosed[1],
+            "date created": dateCreated,
+            "date closed": dateClosed,
         }
-        #issueArr = [issue['title'], dateCreated[0], dateCreated[1], dateClosed[0], dateClosed[1]]
+        # issueArr = [issue['title'], dateCreated[0], dateCreated[1], dateClosed[0], dateClosed[1]]
         array.append(issueArr)
 
     return json.dumps(array,indent=4)
