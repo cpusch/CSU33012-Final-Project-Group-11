@@ -1,15 +1,27 @@
-import React, { Component } from 'react'
+import React, { Component, useState } from 'react'
 import Chart from 'react-google-charts'
-export const BarData = [
+import axios from 'axios'
+
+function BarChart() {
+  const [dataHook, setDataHook] = useState([]);
+  const getData = async () => {
+      await axios.get("http://127.0.0.1:8000/commits")
+          .then((response) => (response.data))
+          .then((data) => {
+              setDataHook(data)
+          })
+  }
+  getData()
+  console.log(dataHook)
+ const BarData = [
   [
     { type: "string", id: "Date" },
     { type: "number", id: "Commits" },
   ],
-
-  ["2022-08", 75],
-  ["2022-09", 813],
-  ["2022-10", 860],
-  ["2022-11", 215],
+  dataHook[0],
+  dataHook[1],
+  dataHook[2],
+  dataHook[3],
 ]
 const BarChartOptions = {
   hAxis: {
@@ -22,21 +34,15 @@ const BarChartOptions = {
     0: {color: '#66CDAA'},
   },
 }
-class BarChart extends Component {
 
-  constructor(props){
-    super(props);
-    this.state ={
-        chartData:props.chartData
-    }
-}
-  render() {
+
+  
     return (
       <div className="container mt-5">
         <Chart
           width={'700px'}
           height={'410px'}
-          chartType="BarChart"
+          chartType="Bar"
           loader={<div>Loading Chart</div>}
           //data={this.state.chartData}
           data={BarData}
@@ -46,5 +52,5 @@ class BarChart extends Component {
       </div>
     )
   }
-}
+
 export default BarChart
