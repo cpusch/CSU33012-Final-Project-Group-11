@@ -75,7 +75,7 @@ const Sidebar = () =>{
                                 ml="15px"
                             >
                             <Typography variant="h3" color={colors.grey[100]}>
-                                ADMINIS
+                                CSU33012
                             </Typography>
                             <IconButton onClick={() => setIsCollapsed(!isCollapsed)}>
                                 <MenuOutlinedIcon />
@@ -123,7 +123,7 @@ const Sidebar = () =>{
                           color={colors.grey[300]}
                           sx={{ m: "15px 0 5px 20px" }}
                         >
-                          Charts
+                          Features
                         </Typography>
                          <Item
                           title="Commits"
@@ -160,7 +160,7 @@ const Sidebar = () =>{
                            selected={selected}
                            setSelected={setSelected}/>
                          <Item
-                            title="About Us"
+                            title="Our Experience"
                             to="/about"
                             icon={<HelpOutlineOutlinedIcon />}
                             selected={selected}

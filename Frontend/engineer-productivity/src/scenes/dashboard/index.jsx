@@ -88,6 +88,7 @@ const Dashboard = () => {
               >
                 Github
               </Typography>
+              
             </Box>
           </Box>
         </Box>
@@ -102,7 +103,7 @@ const Dashboard = () => {
           <List
               sx={{
                 width: '100%',
-                maxWidth: 360,
+                maxWidth: 500,
               }}
           >
             <ListItem>
@@ -131,28 +132,11 @@ const Dashboard = () => {
               </ListItemAvatar>
               <ListItemText primary="Pull" secondary="Feature Info:xxxxxxxxxxxxxxxxxxxxxxxxxxxx" />
             </ListItem>
-            <Divider variant="x" component="li" />
-            <ListItem>
-              <ListItemAvatar>
-                <Avatar>
-                  <GroupIcon/>
-                </Avatar>
-              </ListItemAvatar>
-              <ListItemText primary="Team" secondary="Feature Info:xxxxxxxxxxxxxxxxxxxxxxxxxxxx" />
-            </ListItem>
-            <Divider variant="x" component="li" />
-            <ListItem>
-              <ListItemAvatar>
-                <Avatar>
-                  <HelpCenterIcon/>
-                </Avatar>
-              </ListItemAvatar>
-              <ListItemText primary="About Us" secondary="Feature Info:xxxxxxxxxxxxxxxxxxxxxxxxxxxx" />
-            </ListItem>
+            
             <Divider variant="x" component="li" />
           </List>
-          <Link href="http://localhost:3000/about" padding="130px" underline="hover"  color={colors.grey[100]} variant="h4" fontWeight="600">
-            {'Read More'}
+          <Link href="http://localhost:3000/about" padding="100px" underline="hover"  color={colors.grey[100]} variant="h4" fontWeight="600">
+            {'Learn More'}
           </Link>
         </Box>
       </Box>
