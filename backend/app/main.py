@@ -16,11 +16,17 @@ middlewares = [
 
 app = FastAPI(middleware=middlewares)
 commits = None
+recent_issues = None
+pull_requests_over_time = None
 
 @app.get("/")
 def read_root():
-    global commits
+    global commits,recent_issues,pull_requests_over_time
     commits = getCommitsOverTime("AUTOMATIC1111/stable-diffusion-webui", False)
+    recent_issues = getRecentIssues()
+    pull_requests_over_time = getPullRequestsOverTime("AUTOMATIC1111/stable-diffusion-webui", False)
+
+
     return {"Hello": "World"}
 
 
@@ -35,8 +41,8 @@ def get_commits():
 
 @app.get("/pulls")
 def get_pulls():
-    return getPullRequestsOverTime("AUTOMATIC1111/stable-diffusion-webui", False)
+    return pull_requests_over_time
 
 @app.get("/timeline")
 def get_issues():
-    return getRecentIssues()
+    return recent_issues
