@@ -32,8 +32,8 @@ def getRecentIssues():
         dateClosed = issue['closed_at']
         issueArr = {
             "name": issue['title'],
-            "date created": dateCreated,
-            "date closed": dateClosed,
+            "date_created": dateCreated,
+            "date_closed": dateClosed,
         }
         # issueArr = [issue['title'], dateCreated[0], dateCreated[1], dateClosed[0], dateClosed[1]]
         array.append(issueArr)
