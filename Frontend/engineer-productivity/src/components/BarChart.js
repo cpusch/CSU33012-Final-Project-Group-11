@@ -2,6 +2,7 @@ import React, { Component, useState, useEffect } from 'react'
 import Chart from 'react-google-charts'
 import axios from 'axios'
 
+
 function BarChart() {
   const [dataHook, setInfo] = useState([]);
     useEffect(() => {
@@ -36,7 +37,7 @@ const BarChartOptions = {
 }
 
 
-  
+
     return (
       <div className="container mt-5">
           <h4>Bar Chart</h4>
@@ -49,7 +50,8 @@ const BarChartOptions = {
           data={BarData}
           options={BarChartOptions}
           rootProps={{ 'data-testid': '2' }}
-        />
+        />   
+            
       </div>
     )
   }

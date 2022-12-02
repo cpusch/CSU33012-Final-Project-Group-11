@@ -1,8 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import Chart from 'react-google-charts'
 import axios from 'axios'
+import { Box } from '@mui/material';
 
 function PullRequest() {
+  var average = 232.2;
+  var totalPulls = 1161;
+  var highestPulls = 548;
     const [dataHook, setInfo] = useState([]);
     useEffect(() => {
         const getData = async () => {
@@ -48,6 +52,18 @@ function PullRequest() {
                 options={BarChartOptions}
                 rootProps={{ 'data-testid': '2' }}
             />
+            <h4>Chart Insights</h4>
+        <Box
+        color="black" 
+        width={'700px'}
+        height={'100px'}
+        bgcolor="#66cdcd" p={1}>
+          <b>Highest Number of pull requests: </b>{highestPulls}
+          <br></br>
+          <b>Total Pull Requests: </b> {totalPulls}
+          <br></br>
+          <b>Average Pull Requests: </b>{average}
+        </Box>
         </div>
     )
 }
