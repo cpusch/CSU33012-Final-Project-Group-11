@@ -31,7 +31,7 @@ function LineCharts() {
     const LineData = [
         [
             { type: "string", id: "Date" },
-            { type: "number", id: "Pulls" },
+            { type: "number", id: "Commits" },
         ],
         dataHook[0],
         dataHook[1],

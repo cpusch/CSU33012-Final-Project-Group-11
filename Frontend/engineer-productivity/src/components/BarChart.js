@@ -16,7 +16,7 @@ function BarChart() {
     const BarData = [
         [
             { type: "string", id: "Date" },
-            { type: "number", id: "Pulls" },
+            { type: "number", id: "Commits" },
         ],
         dataHook[0],
         dataHook[1],
