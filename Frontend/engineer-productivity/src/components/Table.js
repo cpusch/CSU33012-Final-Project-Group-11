@@ -19,7 +19,9 @@ function Table (){
 
         getData();
     }, []);
-    
+    totalCommits = dataHook[0][1] + dataHook[1][1] + dataHook[2][1] + dataHook[3][1];
+    average = totalCommits/4;
+    /*
     function getHighestCommits (){
       var number1 = dataHook[0][1];
       var number2 = dataHook[1][1];
@@ -39,22 +41,14 @@ function Table (){
       }
       return highestCommits;
     }
-    highestCommits2 = getHighestCommits();
+    highestCommits2 = getHighestCommits();*/
     
-    function getTotalCommits (){
-      totalCommits = dataHook[0][1] + dataHook[1][1] + dataHook[2][1] + dataHook[3][1];
-      return totalCommits;
-    }
-    var totalCommits2 = getTotalCommits();
-    function getAverage(){
-      average = totalCommits/4;
-      return average;
-    }
-    var average2 = getAverage();
+    
+      
     
  const data = [
-  ["Highest Commits", "Total Commits", "Average Commits"],
-  [highestCommits2, totalCommits2, average2],
+  ["Highest Commits", "Total Commits"],
+  [totalCommits, average],
 ];
 
  const options = {

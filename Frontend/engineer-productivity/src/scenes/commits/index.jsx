@@ -2,7 +2,7 @@ import { Box } from "@mui/material";
 import Header from "../../components/Header";
 import CommitBarChart from "../../components/BarChart";
 import CommitLineChart from "../../components/LineCharts";
-import CommitTable from "../../components/Table";
+
 const Commits = () => {
   return (
     <Box m="20px">
@@ -10,7 +10,6 @@ const Commits = () => {
       <Box height="75vh">
         <CommitBarChart />
           <CommitLineChart />
-          <CommitTable/>
       </Box>
     </Box>
   );
