@@ -22,9 +22,6 @@ function LineCharts() {
   var average = 553.75;
   var totalCommits = 2215;
   var highestCommits = 991;
-  var highestCommits2;
-  var average2;
-  var totalCommits2;
   const [dataHook, setInfo] = useState([]);
     useEffect(() => {
         const getData = async () => {
