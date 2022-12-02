@@ -39,6 +39,7 @@ const BarChartOptions = {
   
     return (
       <div className="container mt-5">
+          <h4>Bar Chart</h4>
         <Chart
           width={'700px'}
           height={'410px'}

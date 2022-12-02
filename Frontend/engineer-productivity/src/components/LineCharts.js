@@ -53,7 +53,7 @@ const LineChartOptions = {
 
     return (
       <div className="container mt-5">
-        <h4>Line Chart for Commits over a period of time</h4>
+        <h4>Line Chart</h4>
         <Chart
           width={'700px'}
           height={'410px'}
