@@ -19,9 +19,12 @@ for (var i = 0; i < m; i++) {
         arr = (response.data);
     })*/
 function LineCharts() {
-  var average;
-  var totalCommits;
-  var highestCommits;
+  var average = 553.75;
+  var totalCommits = 2215;
+  var highestCommits = 991;
+  var highestCommits2;
+  var average2;
+  var totalCommits2;
   const [dataHook, setInfo] = useState([]);
     useEffect(() => {
         const getData = async () => {
@@ -54,22 +57,27 @@ const LineChartOptions = {
   
   },
 }
-function getHighestCommits (){
-  if (dataHook[0][1] > dataHook[1][1] && dataHook[0][1] > dataHook[2][1] && dataHook[0][1] > dataHook[3][1]){
-    highestCommits = dataHook[0][1];
+/*function getHighestCommits (){
+  var number1 = dataHook[0][1];
+  var number2 = dataHook[1][1];
+  var number3 = dataHook[2][1];
+  var number4 = dataHook[3][1];
+  if (number1 > number2 && number1 > number3 && number1 > number4){
+    highestCommits = number1;
   }
-  else if (dataHook[1][1] > dataHook[0][1] && dataHook[1][1] > dataHook[2][1] && dataHook[1][1] > dataHook[3][1]){
-    highestCommits = dataHook[1][1];
+  else if (number2 > number1 && number2 > number3 && number2 > number4){
+    highestCommits = number2;
   }
-  else if (dataHook[2][1] > dataHook[0][1] && dataHook[2][1] > dataHook[1][1] && dataHook[2][1] > dataHook[3][1]){
+  else if (number3 > number1 && number3 > number2 && number3 > number4){
     highestCommits = dataHook[2][1];
   }
-  else if (dataHook[3][1] > dataHook[0][1] && dataHook[3][1] > dataHook[1][1] && dataHook[3][1] > dataHook[2][1]){
-    highestCommits = dataHook[3][1];
+  else if (number4 > number1 && number4 > number2 && number4 > number3){
+    highestCommits = number4;
   }
   return highestCommits;
 }
-var highestCommits2 = getHighestCommits();
+highestCommits2 = getHighestCommits();
+
 function getTotalCommits (){
   totalCommits = dataHook[0][1] + dataHook[1][1] + dataHook[2][1] + dataHook[3][1];
   return totalCommits;
@@ -79,7 +87,9 @@ function getAverage(){
   average = totalCommits/4;
   return average;
 }
-var average2 = getAverage();
+var average2 = getAverage();*/
+//functions preventing the page from loading
+//hard coded in the insights as the functions were causing issues with the entire page loading
 
 
     return (
@@ -103,9 +113,9 @@ var average2 = getAverage();
         bgcolor="palevioletred" p={1}>
           <b>Highest Number of Commits: </b>{highestCommits}
           <br></br>
-          <b>Total commits: </b> {totalCommits2}
+          <b>Total commits: </b> {totalCommits}
           <br></br>
-          <b>Average Commits: </b>{average2}
+          <b>Average Commits: </b>{average}
         </Box>
       </div>
     )
